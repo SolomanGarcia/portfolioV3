@@ -25,6 +25,7 @@ html {
   position: fixed;
   z-index: 300;
   transform: translate(-50%, -50%);
+  opacity: 0;
 }
 
 .mouse-circle {
