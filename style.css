@@ -65,6 +65,24 @@ html {
   width: 0.5rem;
   height: 0.5rem;
   background-color: #9b0e0e;
+  animation: mouseDotAnim 10s infinite linear;
+}
+
+@keyframes mouseDotAnim {
+  0% {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  55% {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  100% {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
 }
 
 /* End of Mouse Circle */
