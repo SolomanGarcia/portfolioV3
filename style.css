@@ -188,4 +188,31 @@ html {
 
 /* End of Animated Cirlces */
 
+/* Featured Text */
+.featured-text {
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  width: 0;
+  /* word-wrap: break-word; */
+  line-height: 3.5;
+  position: sticky;
+  top: 0;
+}
+
+.featured-text-1 {
+  margin: 0 auto 0 10rem;
+  writing-mode: vertical-lr;
+  letter-spacing: 3.5rem;
+  transform: rotate(-180deg);
+}
+
+.featured-text-2 {
+  margin: 0 10rem 0 auto;
+  writing-mode: vertical-rl;
+  letter-spacing: 3.5rem;
+}
+
+/* End of Featured Text */
+
 /* End of Section 1 */
