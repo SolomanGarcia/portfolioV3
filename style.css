@@ -18,6 +18,18 @@ html {
 
 /* End of Common Style*/
 
+/* Mouse Circle */
+.mouse-circle {
+  width: 6rem;
+  height: 6rem;
+  border: 0.1rem solid #c7a622;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 300;
+}
+
+/* End of Mouse Circle */
+
 /* Page Background */
 .page-background {
   position: fixed;
