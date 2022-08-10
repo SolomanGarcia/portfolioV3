@@ -102,3 +102,5 @@ Array.from(aboutMeTextContent).forEach((char) => {
 });
 
 // End of About Me Text
+
+

@@ -10,6 +10,7 @@
   list-style-type: none;
   outline: none;
   font-family: "Jura", sans-serif;
+  cursor: default;
 }
 
 html {
@@ -107,7 +108,6 @@ html {
 }
 
 /* End of Main Button */
-
 
 /* End of Common Style*/
 
