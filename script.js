@@ -106,6 +106,7 @@ Array.from(aboutMeTextContent).forEach((char) => {
 // Projects
 const container = document.querySelector('.container');
 const projects = document.querySelectorAll('.project');
+const projectHideBtn = document.querySelector('.project-hide-btn');
 
 projects.forEach(project => {
   project.addEventListener('mouseenter', () => {
@@ -128,6 +129,15 @@ projects.forEach(project => {
     console.log(imgPath);
     bigImg.setAttribute('src', `${imgPath}-big.jpg`);
     bigImgWrapper.appendChild(bigImg);
+    document.body.style.overflowY = "hidden";
+
+    projectHideBtn.classList.add('change');
+
+    projectHideBtn.onclick = () => {
+      projectHideBtn.classList.remove('change');
+      bigImgWrapper.remove();
+      document.body.style.overflowY = 'scroll';
+    };
   });
   // End of Big Project Image
 });
