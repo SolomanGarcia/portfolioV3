@@ -89,7 +89,7 @@ mainBtns.forEach(btn => {
 
 // About Me Text
 const aboutMeText = document.querySelector('.about-me-text');
-const aboutMeTextContent = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dignissimos nam distinctio ducimus, quidem voluptatem laboriosam impedit dolor porro nihil, minima explicabo ullam, praesentium inventore accusantium veniam quaerat eum ipsa!';
+const aboutMeTextContent = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dignissimos nam distinctio ducimus, quidem voluptatem laboriosam impedit dolor porro nihil ipsa!';
 
 Array.from(aboutMeTextContent).forEach((char) => {
   const span = document.createElement('span');
