@@ -124,7 +124,8 @@ projects.forEach(project => {
 
     const bigImg = document.createElement('img');
     bigImg.className = 'project-img';
-    const imgPath = project.firstElementChild.getAttribute('src').split('.')[0];
+    const imgPath = project.firstElementChild.getAttribute('src').split('.')[1];
+    console.log(imgPath);
     bigImg.setAttribute('src', `${imgPath}-big.jpg`);
     bigImgWrapper.appendChild(bigImg);
   });
