@@ -596,6 +596,9 @@ html {
 
 .skill-btn {
   width: 100%;
+  position: relative;
+  display: block;
+  height: 15rem;
 }
 
 .skill-btn span {
@@ -604,7 +607,26 @@ html {
   font-style: italic;
   font-weight: bold;
   color: #9b0e0e;
+  position: absolute;
+  right: 0;
+  transition: right 0.5s;
+}
 
+.skill-text {
+  font-size: 5rem;
+  color: #777;
+  letter-spacing: .1rem;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .2s;
+}
+
+.change.skill-text {
+  height: 15rem;
+  visibility: visible;
+  opacity: 1;
+  transition: height 0.5s, opacity 0.5s 0.5s;
 }
 
 /* End of Skills */
