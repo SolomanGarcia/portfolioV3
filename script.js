@@ -141,7 +141,7 @@ projects.forEach((project, i) => {
   });
   // End of Big Project Image
 
-  i >= 6 && (project.style.cssText = "display: none; opacity: 0");
+  i >= 3 && (project.style.cssText = "display: none; opacity: 0");
 });
 
 // Projects Button
@@ -180,7 +180,7 @@ projectsBtn.addEventListener('click', (e) => {
   showHideBool ? (projectsBtnText.textContent = 'Show Less') : (projectsBtnText.textContent = 'Show More');
 
   projects.forEach((project, i) => {
-    i >= 6 && (showHideBool ? showProjects(project, i) : hideProjects(project, i));
+    i >= 3 && (showHideBool ? showProjects(project, i) : hideProjects(project, i));
   });
   showHideBool = !showHideBool;
 });
