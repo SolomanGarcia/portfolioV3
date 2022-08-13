@@ -213,14 +213,15 @@ html {
 /* Progress Bar */
 .progress-bar {
   position: fixed;
-  bottom: 8rem;
-  right: 8rem;
+  bottom: 4rem;
+  right: 4rem;
   width: 8rem;
   height: 8rem;
   background-color: #fff;
   border-radius: 50%;
   z-index: 200;
   overflow: hidden;
+  transform: translate(-50%, -50%);
 }
 
 .half-circle,
@@ -231,6 +232,7 @@ html {
   width: 50%;
   height: 100%;
   transform-origin: right center;
+  pointer-events: none;
 }
 
 .half-circle:nth-child(1) {
@@ -249,21 +251,6 @@ html {
   background-color: #fff;
 }
 
-/* .progress-bar:hover .half-circle-top {
-  opacity: 0;
-  transition: opacity 0s 1s;
-}
-
-.progress-bar:hover .half-circle:nth-child(1) {
-  transform: rotate(180deg);
-  transition: 1s linear;
-}
-
-.progress-bar:hover .half-circle:nth-child(2) {
-  transform: rotate(360deg);
-  transition: 2s linear;
-} */
-
 .progress-bar-circle {
   width: 7.8rem;
   height: 7.8rem;
@@ -273,6 +260,7 @@ html {
   font-size: 4rem;
   z-index: 200;
   transition: transform .5s;
+  pointer-events: none;
 }
 
 /* End of Progress Bar */
@@ -281,8 +269,8 @@ html {
 /* Menu Icon */
 .menu-icon {
   position: fixed;
-  top: 0;
-  right: 6rem;
+  top: 3.5rem;
+  right: 0;
   width: 12rem;
   height: 7rem;
   flex-direction: column;
@@ -290,6 +278,7 @@ html {
   visibility: hidden;
   z-index: 100;
   cursor: pointer;
+  transform: translate(-50%, -50%);
   transition: opacity .2s;
 }
 
@@ -796,7 +785,7 @@ html {
   color: #aaa;
   letter-spacing: 0.1rem;
   height: 5rem;
-  cursor: default;
+  cursor: pointer;
 }
 
 .contact-form-textarea {
