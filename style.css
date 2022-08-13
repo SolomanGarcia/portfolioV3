@@ -550,6 +550,7 @@ html {
   position: absolute;
   top: 2rem;
   opacity: .5;
+  pointer-events: none;
   transition: top 4s 0.2s, opacity 0.2s;
 }
 
@@ -728,6 +729,7 @@ html {
   color: #9b0e0e;
   position: absolute;
   right: 0;
+  pointer-events: none;
   transition: right 0.5s;
 }
 
