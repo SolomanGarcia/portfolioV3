@@ -2,6 +2,7 @@
 const mouseCircle = document.querySelector(".mouse-circle");
 const mouseDot = document.querySelector(".mouse-dot");
 
+let mouseCircleBool = true;
 
 const mouseCirlceFn = (x, y) => {
   mouseCircle.style.cssText = `top: ${y}px; left: ${x}px; opacity: 1`;
@@ -88,6 +89,8 @@ mainBtns.forEach(btn => {
 // End of Main Button
 
 // Progress Bar
+const sections = document.querySelectorAll('section');
+const progressBar = document.querySelectorAll('.progress-bar');
 const halfCircles = document.querySelectorAll('.half-circle');
 const halfCircleTop = document.querySelector('.half-circle-top');
 const progressBarCircle = document.querySelector('.progress-bar-circle');
@@ -101,15 +104,45 @@ const progressBarFn = () => {
 
   halfCircles.forEach((el) => {
     el.style.transform = `rotate(${scrolledPortionDegree}deg)`;
+
+    if (scrolledPortionDegree >= 180) {
+      halfCircles[0].style.transform = "rotate(180deg)";
+      halfCircleTop.style.opacity = '0';
+    } else {
+      halfCircleTop.style.opacity = '1';
+    }
   });
 
-  if (scrolledPortionDegree >= 180) {
-    halfCircles[0].style.transform = "rotate(180deg)";
-    halfCircleTop.style.opacity = '0';
+  const scrollBool = scrolledPortion + pageViewportHeight === pageHeight;
+
+  // Progress Bar Click
+  progressBar.onclick = (e) => {
+    e.preventDefault();
+
+    const sectionPositions = Array.from(sections).map((section) =>
+      scrolledPortion + section.getBoundingClientRect().top
+    );
+
+    const position = sectionPositions.find((sectionPosition) => {
+      return sectionPosition > scrolledPortion;
+    });
+
+    scrollBool ? window.scrollTo(0, 0) : window.scrollTo(0, position);
+
+  };
+  // End of Progress Bar Click
+
+  // Arrow Rotation
+  if (scrollBool) {
+    progressBarCircle.style.transform = "rotate(180deg)";
   } else {
-    halfCircleTop.style.opacity = '1';
+    progressBarCircle.style.transform = "rotate(0)";
   }
+  // End of Arrow Rotation
 };
+
+progressBarFn();
+
 // End of Progress Bar
 
 // Navigation
