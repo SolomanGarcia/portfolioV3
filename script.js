@@ -49,22 +49,15 @@ const animateCircles = (e, x, y) => {
 };
 // End of Animated Circles
 
+// Sticky Element
+
 let hoveredElPosition = [];
 
-document.body.addEventListener('mousemove', (e) => {
-  let x = e.clientX;
-  let y = e.clientY;
-
-  mouseCirlceFn(x, y);
-  animateCircles(e, x, y);
-
-  // Sticky Element
-  const hoveredEl = document.elementFromPoint(x, y);
-
+const stickyElement = (x, y, hoveredEl) => {
   if (hoveredEl.classList.contains('sticky')) {
-    if (hoveredElPosition.length < 1) {
-      hoveredElPosition = [hoveredEl.offsetTop, hoveredEl.offsetLeft];
-    }
+    hoveredElPosition.length < 1 &&
+      (hoveredElPosition = [hoveredEl.offsetTop, hoveredEl.offsetLeft]);
+
 
     hoveredEl.style.cssText = `top: ${y}px; left: ${x}px`;
 
@@ -79,6 +72,18 @@ document.body.addEventListener('mousemove', (e) => {
     };
   }
   // End of Sticky Element
+};
+
+document.body.addEventListener('mousemove', (e) => {
+  let x = e.clientX;
+  let y = e.clientY;
+
+  mouseCirlceFn(x, y);
+  animateCircles(e, x, y);
+
+  const hoveredEl = document.elementFromPoint(x, y);
+
+  stickyElement(x, y, hoveredEl);
 });
 
 document.body.addEventListener("mouseleave", () => {
