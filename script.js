@@ -101,7 +101,7 @@ const mouseCircleTransform = (hoveredEl) => {
 
     document.onscroll = () => {
       if (!mouseCircleBool) {
-        mouseCircle.style.top = `${hoveredEl.getBoundingClientRect().top}px`;
+        mouseCircle.style.cssText = `${hoveredEl.getBoundingClientRect().top}px`;
       }
     };
   }
