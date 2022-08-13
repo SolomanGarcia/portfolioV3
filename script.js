@@ -88,22 +88,26 @@ mainBtns.forEach(btn => {
 
 // Progress Bar
 const sections = document.querySelectorAll('section');
-const progressBar = document.querySelectorAll('.progress-bar');
+const progressBar = document.querySelector('.progress-bar');
 const halfCircles = document.querySelectorAll('.half-circle');
 const halfCircleTop = document.querySelector('.half-circle-top');
 const progressBarCircle = document.querySelector('.progress-bar-circle');
 
-const progressBarFn = (bigImgWrapper = false) => {
+let scrolledPortion = 0;
+let scrollBool = false;
+let imageWrapper = false;
+
+const progressBarFn = (bigImgWrapper) => {
+  imageWrapper = bigImgWrapper;
   let pageHeight = 0;
-  let scrolledPortion = 0;
   const pageViewportHeight = window.innerHeight;
 
-  if (!bigImgWrapper) {
+  if (!imageWrapper) {
     pageHeight = document.documentElement.scrollHeight;
     scrolledPortion = window.pageYOffset;
   } else {
-    pageHeight = bigImgWrapper.firstElementChild.scrollHeight;
-    scrolledPortion = bigImgWrapper.scrollTop;
+    pageHeight = imageWrapper.firstElementChild.scrollHeight;
+    scrolledPortion = imageWrapper.scrollTop;
   }
 
   const scrolledPortionDegree = (scrolledPortion / (pageHeight - pageViewportHeight)) * 360;
@@ -119,27 +123,7 @@ const progressBarFn = (bigImgWrapper = false) => {
     }
   });
 
-  const scrollBool = scrolledPortion + pageViewportHeight === pageHeight;
-
-  // Progress Bar Click
-  progressBar.onclick = (e) => {
-    e.preventDefault();
-
-    if (!bigImgWrapper) {
-      const sectionPositions = Array.from(sections).map((section) =>
-        scrolledPortion + section.getBoundingClientRect().top
-      );
-
-      const position = sectionPositions.find((sectionPosition) => {
-        return sectionPosition > scrolledPortion;
-      });
-
-      scrollBool ? window.scrollTo(0, 0) : window.scrollTo(0, position);
-    } else {
-      scrollBool ? bigImgWrapper.scrollTo(0, 0) : bigImgWrapper.scrollTo(0, bigImgWrapper.scrollHeight);
-    }
-  };
-  // End of Progress Bar Click
+  scrollBool = scrolledPortion + pageViewportHeight === pageHeight;
 
   // Arrow Rotation
   if (scrollBool) {
@@ -149,6 +133,26 @@ const progressBarFn = (bigImgWrapper = false) => {
   }
   // End of Arrow Rotation
 };
+
+// Progress Bar Click
+progressBar.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (!imageWrapper) {
+    const sectionPositions = Array.from(sections).map((section) =>
+      scrolledPortion + section.getBoundingClientRect().top
+    );
+
+    const position = sectionPositions.find((sectionPosition) => {
+      return sectionPosition > scrolledPortion;
+    });
+
+    scrollBool ? window.scrollTo(0, 0) : window.scrollTo(0, position);
+  } else {
+    scrollBool ? imageWrapper.scrollTo(0, 0) : imageWrapper.scrollTo(0, imageWrapper.scrollHeight);
+  }
+});
+// End of Progress Bar Click
 
 progressBarFn();
 
@@ -221,6 +225,8 @@ projects.forEach((project, i) => {
     bigImgWrapper.appendChild(bigImg);
     document.body.style.overflowY = "hidden";
 
+    document.removeEventListener("scroll", scrollFn);
+
     progressBarFn(bigImgWrapper);
 
     bigImgWrapper.onscroll = () => {
@@ -233,6 +239,8 @@ projects.forEach((project, i) => {
       projectHideBtn.classList.remove('change');
       bigImgWrapper.remove();
       document.body.style.overflowY = 'scroll';
+
+      document.addEventListener("scroll", scrollFn);
 
       progressBarFn();
     };
