@@ -441,15 +441,15 @@ html {
 
 .featured-text-1 {
   margin: 0 auto 0 10rem;
-  /* writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
   letter-spacing: 3.5rem;
-  transform: rotate(-180deg); */
+  transform: rotate(-180deg);
 }
 
 .featured-text-2 {
   margin: 0 10rem 0 auto;
-  /*  writing-mode: vertical-rl;
-  letter-spacing: 3.5rem; */
+  writing-mode: vertical-rl;
+  letter-spacing: 3.5rem;
 }
 
 /* End of Featured Text */
@@ -804,6 +804,26 @@ html {
   color: #fff;
   cursor: pointer;
 }
+
+/* Form Validation */
+.message {
+  font-size: 1.2 rem;
+  font-weight: 700;
+  color: #f55e5e;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  margin: 0 auto 1rem 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.error.message {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* End of Form Validation */
 
 /* End of Form */
 
