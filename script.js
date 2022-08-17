@@ -248,7 +248,7 @@ menuIcon.addEventListener("click", () => {
 
 // About Me Text
 const aboutMeText = document.querySelector('.about-me-text');
-const aboutMeTextContent = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dignissimos nam distinctio ducimus, quidem!';
+const aboutMeTextContent = 'I’m a front-end developer looking for a new role in an exciting company. I focus on writing accessible HTML, using modern CSS practices and writing clean JavaScript and React.';
 
 Array.from(aboutMeTextContent).forEach((char) => {
   const span = document.createElement('span');
