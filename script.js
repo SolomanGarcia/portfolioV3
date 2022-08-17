@@ -474,7 +474,7 @@ form.addEventListener("submit", e => {
   checkLength(username, 2);
   checkLength(subject, 2);
   checkLength(message, 10);
-  checkEmail(email)
+  checkEmail(email);
   checkRequiredFields([username, email, subject, message]);
 });
 // End of Form Validation

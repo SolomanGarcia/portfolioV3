@@ -122,6 +122,8 @@ html {
   width: 0;
   word-break: break-all;
   line-height: 4;
+
+  
 }
 
 /* End of Section Heading */
@@ -441,15 +443,15 @@ html {
 
 .featured-text-1 {
   margin: 0 auto 0 10rem;
-  writing-mode: vertical-lr;
-  letter-spacing: 3.5rem;
-  transform: rotate(-180deg);
+  /* writing-mode: vertical-lr; */
+  /* letter-spacing: 3.5rem; */
+  /* transform: rotate(-180deg); */
 }
 
 .featured-text-2 {
   margin: 0 10rem 0 auto;
-  writing-mode: vertical-rl;
-  letter-spacing: 3.5rem;
+  /* writing-mode: vertical-rl;
+  letter-spacing: 3.5rem; */
 }
 
 /* End of Featured Text */
@@ -480,12 +482,13 @@ html {
   position: relative;
   mix-blend-mode: color-dodge;
   cursor: default;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes aboutMeTextAnim {
   0% {
     color: #aaa;
-    top: 0%;
+    top: 0;
   }
 
   10%,
