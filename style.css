@@ -495,7 +495,7 @@ html {
   10%,
   90% {
     color: #fff;
-    /* top: 2rem; */
+    top: 2rem; 
   }
 
   100% {
